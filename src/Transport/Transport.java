@@ -2,6 +2,7 @@ package Transport;
 
 import Driver.Driver;
 import Interfaces.Competing;
+import Transport.exception.TransportTypeException;
 
 public abstract class Transport <T extends Driver> implements Competing {
     private final String brand;
@@ -48,6 +49,8 @@ public abstract class Transport <T extends Driver> implements Competing {
             this.engineVolume = 1.2;
         } else this.engineVolume = engineVolume;
     }
+
+    public abstract boolean passDiagnostics() throws TransportTypeException;
 
     public abstract void printType();
 

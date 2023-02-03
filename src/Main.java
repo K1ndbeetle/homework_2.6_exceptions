@@ -8,9 +8,10 @@ import Transport.Trucks;
 import Transport.enums.BodyTypes;
 import Transport.enums.CapacityType;
 import Transport.enums.LoadType;
+import Transport.exception.TransportTypeException;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws TransportTypeException {
         DriverB driverB = new DriverB("Иван ИВанов Иванович", true, 15);
 
         Car carAudi = new Car(
@@ -135,6 +136,30 @@ public class Main {
         trucksScania.printType();
         trucksTatra.printType();
         trucksRenault.printType();
+        System.out.println();
+
+        carAudi.passDiagnostics();
+        carBmw.passDiagnostics();
+        carKia.passDiagnostics();
+        carHyundai.passDiagnostics();
+        System.out.println();
+
+        trucksMan.passDiagnostics();
+        trucksScania.passDiagnostics();
+        trucksTatra.passDiagnostics();
+        trucksRenault.passDiagnostics();
+
+        try {busDaewoo.passDiagnostics();
+             busHiger.passDiagnostics();
+             busSetra.passDiagnostics();
+             busVolvo.passDiagnostics();
+        }
+        catch (TransportTypeException e) {
+            System.err.println("Автобусы диагностику проходить не должны.");
+        }
+
+
+
         System.out.println();
     }
 
