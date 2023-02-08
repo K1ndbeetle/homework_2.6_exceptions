@@ -2,6 +2,7 @@ package Transport;
 
 import Driver.DriverD;
 import Transport.enums.CapacityType;
+import Transport.exception.TransportTypeException;
 
 public class Bus extends Transport <DriverD> {
 
@@ -22,6 +23,11 @@ public class Bus extends Transport <DriverD> {
 
     public void setCapacityType(CapacityType capacityType) {
         this.capacityType = capacityType;
+    }
+
+    @Override
+    public boolean passDiagnostics() throws TransportTypeException {
+        throw new TransportTypeException("Автобусы диагностику проходить не должны");
     }
 
     @Override

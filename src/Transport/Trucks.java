@@ -2,6 +2,7 @@ package Transport;
 
 import Driver.DriverC;
 import Transport.enums.LoadType;
+import Transport.exception.TransportTypeException;
 
 public class Trucks extends Transport <DriverC> {
 
@@ -22,6 +23,12 @@ public class Trucks extends Transport <DriverC> {
 
     public void setLoadTypes(LoadType loadTypes) {
         this.loadTypes = loadTypes;
+    }
+
+    @Override
+    public boolean passDiagnostics() throws TransportTypeException {
+        System.out.println("Диагностика пройдена грузовым автомобелем " + getBrand() + " " + getModel() + ".");
+        return false;
     }
 
     @Override

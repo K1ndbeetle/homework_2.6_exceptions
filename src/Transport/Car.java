@@ -2,6 +2,7 @@ package Transport;
 
 import Driver.DriverB;
 import Transport.enums.BodyTypes;
+import Transport.exception.TransportTypeException;
 
 public class Car extends Transport <DriverB> {
 
@@ -22,6 +23,12 @@ public class Car extends Transport <DriverB> {
 
     public void setBodyTypes(BodyTypes bodyTypes) {
         this.bodyTypes = bodyTypes;
+    }
+
+    @Override
+    public boolean passDiagnostics() throws TransportTypeException {
+        System.out.println("Диагностика пройдена легковым автомобелем " + getBrand() + " " + getModel() + ".");
+        return false;
     }
 
     @Override
